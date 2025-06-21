@@ -34,6 +34,20 @@
                 {% endfor %}
             </ul>
             <a href="{% url 'cv_pdf' cv.pk %}" class="btn btn-success mt-3">Download PDF</a>
+            <form method="post" class="mt-3">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="email" name="email" class="form-control" placeholder="Enter email to send PDF" required>
+                    <button type="submit" class="btn btn-primary">Send PDF to Email</button>
+                </div>
+            </form>
+            {% if messages %}
+                <div class="mt-3">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>
