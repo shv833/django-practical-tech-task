@@ -28,6 +28,13 @@ pe-set-py:
 	pyenv local 3.13.2
 ```
 
+# Run project
+* To load fixture, run `make load-fixture`
+* To run migrations, run `make mmigrate`
+* To run tests, run `make run-tests`
+* To run project, run `make run`
+
+
 # Requirements:
 Follow PEP 8 and other style guidelines, use clear and concise commit messages and docstrings
 where needed, structure your project for readability and maintainability, optimize database access
@@ -58,11 +65,11 @@ using Django’s built-in methods, and provide enough details in your README.
 * Create a fixture that contains at least one sample CV instance.
 * Include instructions in README .md on how to load the fixture.
 4. List Page View and Template
-* Implement a view for the main page (e.g., /) to display a list of CV entries.
+* Implement a view for the main page (e.g., `/`) to display a list of CV entries.
 * Use any CSS library to style them nicely.
 * Ensure the data is retrieved from the database efficiently.
 5. Detail Page View
-* Implement a detail view (e.g., /cv/<id>/) to show all data for a single CV.
+* Implement a detail view (e.g., `/cv/<id>/`) to show all data for a single CV.
 * Style it nicely and ensure efficient data retrieval.
 6. Tests
 * Add basic tests for the list and detail views.
