@@ -1,0 +1,1 @@
+# django-practical-tech-task
