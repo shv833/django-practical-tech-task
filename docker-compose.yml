@@ -1,8 +1,6 @@
 services:
   be:
     build: .
-    volumes:
-      - ./CVProject/:/usr/src/app/
     depends_on:
       - db
     ports:
