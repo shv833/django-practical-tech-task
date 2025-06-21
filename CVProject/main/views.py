@@ -26,10 +26,13 @@ def cv_detail(request, pk):
             target_language = request.POST.get("language")
             if target_language:
                 try:
-                    translated_content = translate_cv_content(cv, target_language)
-                    return JsonResponse(
-                        {"success": True, "translated_content": translated_content}
-                    )
+                    translated_content, success = translate_cv_content(cv, target_language)
+                    if success:
+                        return JsonResponse(
+                            {"success": True, "translated_content": translated_content}
+                        )
+                    else:
+                        raise Exception("Didn't translate successfully")
                 except Exception as e:
                     return JsonResponse({"success": False, "error": str(e)})
             else:

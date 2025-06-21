@@ -54,8 +54,8 @@ def translate_cv_content(cv: CV, target_language: str) -> dict:
 
         translated_content = response.choices[0].message.content.strip()
 
-        return json.loads(translated_content)
+        return json.loads(translated_content), True
 
     except Exception as e:
         print(f"Translation error: {e}")
-        return content_to_translate
+        return content_to_translate, False
