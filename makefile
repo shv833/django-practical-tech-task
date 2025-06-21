@@ -28,3 +28,16 @@ pe-install:
 
 pe-set-py:
 	pyenv local 3.13.2
+
+# django cmd
+mmigrate:
+	cd CVProject && poetry run python manage.py makemigrations && poetry run python manage.py migrate
+
+run:
+	cd CVProject && poetry run python manage.py runserver
+
+run-tests:
+	cd CVProject && poetry run python manage.py test
+
+load-fixture:
+	cd CVProject && poetry run python manage.py loaddata main/fixtures/cv_fixture.json

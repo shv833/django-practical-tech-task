@@ -1,0 +1,21 @@
+[
+    {
+      "model": "main.cv",
+      "pk": 1,
+      "fields": {
+        "firstname": "Ada",
+        "lastname": "Lovelace",
+        "skills": ["Mathematics", "Programming", "Analytical Thinking"],
+        "projects": [
+          {"name": "Analytical Engine", "description": "First computer algorithm"},
+          {"name": "Mathematical Papers", "description": "Published works"}
+        ],
+        "bio": "Ada Lovelace was an English mathematician and writer, chiefly known for her work on Charles Babbage's early mechanical general-purpose computer, the Analytical Engine.",
+        "contacts": {
+          "email": "ada@example.com",
+          "phone": "+1234567890",
+          "linkedin": "https://linkedin.com/in/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      }
+    }
+]
