@@ -154,3 +154,6 @@ EMAIL_HOST_USER = optional("EMAIL_HOST_USER", "api")
 EMAIL_HOST_PASSWORD = optional("EMAIL_HOST_PASSWORD", "")
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = optional("DEFAULT_FROM_EMAIL", "smtp@demomailtrap.co")
+
+# OpenAI settings
+OPENAI_API_KEY = optional("OPENAI_API_KEY", "")
