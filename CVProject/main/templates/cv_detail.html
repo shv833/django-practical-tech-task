@@ -33,7 +33,7 @@
                 <li><strong>{{ key|capfirst }}:</strong> {{ value }}</li>
                 {% endfor %}
             </ul>
-            <a href="#" class="btn btn-success mt-3 disabled" aria-disabled="true">Download PDF</a>
+            <a href="{% url 'cv_pdf' cv.pk %}" class="btn btn-success mt-3">Download PDF</a>
         </div>
     </div>
 </div>
