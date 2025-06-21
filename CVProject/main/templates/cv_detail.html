@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => response.json())
         .then(data => {
-            if (data.success) {
+            if (data.success === true) {
                 updateContent(data.translated_content);
                 translationStatus.className = 'alert alert-success';
                 translationStatus.textContent = 'Translation completed successfully!';
