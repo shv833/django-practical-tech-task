@@ -37,10 +37,28 @@ pe-set-py:
 * To run project, run `make run`
 * Install this and add bin folder to global path so you can generate pdf. `https://wkhtmltopdf.org/downloads.html`
 
+
+## API Usage (CRUD for CV)
+- List all CVs: `GET /api/cv/`
+- Retrieve a CV: `GET /api/cv/<id>/`
+- Create a CV: `POST /api/cv/` (JSON body)
+- Update a CV: `PUT /api/cv/<id>/` (JSON body)
+- Delete a CV: `DELETE /api/cv/<id>/`
+
+Example (using curl):
+
+```
+curl -X GET http://localhost:8000/api/cv/
+
+curl -X POST http://localhost:8000/api/cv/ -H "Content-Type: application/json" -d "{\"firstname\": \"Alan\", \"lastname\": \"a\", \"skills\": [\"Math\"], \"projects\": [], \"bio\": \"Pioneer\", \"contacts\": {\"email\": \"alan@example.com\"}}"
+
+curl -X PUT http://localhost:8000/api/cv/1/ -H "Content-Type: application/json" -d "{\"firstname\": \"Alan\", \"lastname\": \"a\", \"skills\": [\"Math\", \"CS\"], \"projects\": [], \"bio\": \"Pioneer\", \"contacts\": {\"email\": \"alan@example.com\"}}"
+
+curl -X DELETE http://localhost:8000/api/cv/1/
+```
+
 # Requirements:
-Follow PEP 8 and other style guidelines, use clear and concise commit messages and docstrings
-where needed, structure your project for readability and maintainability, optimize database access
-using Django’s built-in methods, and provide enough details in your README.
+Follow PEP 8 and other style guidelines, use clear and concise commit messages and docstrings where needed, structure your project for readability and maintainability, optimize database access using Django's built-in methods, and provide enough details in your README.
 
 # Version Control System
 1. Create a public GitHub repository for this practical test.
@@ -115,7 +133,7 @@ PDF.
 ## Task 7: Celery Basics
 1. Install and configure Celery, using Redis or RabbitMQ as the broker.
 2. Add a Celery worker to your Docker Compose configuration.
-3. On the CV detail page, add an email input field and a 'Send PDF to Email’ button to trigger a
+3. On the CV detail page, add an email input field and a 'Send PDF to Email' button to trigger a
 Celery task that emails the PDF.
 
 ## Task 8: OpenAl Basics
@@ -125,7 +143,7 @@ Celery task that emails the PDF.
 
 ## Task 9: Deployment
 Deploy this project to DigitalOcean or any other VPS.
-That’s it!
+That's it!
 
 Complete each task thoroughly, commit your work following the branch-and-merge structure, and make sure your README .md clearly explains how to install, run, and test everything. We look forward to reviewing your submission!
 
