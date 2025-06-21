@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.template.loader import render_to_string
 from rest_framework import viewsets, serializers
-from main.models import CV
+from main.models import CV, RequestLog
 import pdfkit
 
 
@@ -23,6 +23,11 @@ def cv_pdf(request, pk):
     response = HttpResponse(pdf, content_type="application/pdf")
     response["Content-Disposition"] = f'attachment; filename="cv_{cv.pk}.pdf"'
     return response
+
+
+def logs_view(request):
+    logs = RequestLog.objects.order_by("-timestamp")[:10]
+    return render(request, "logs.html", {"logs": logs})
 
 
 class CVSerializer(serializers.ModelSerializer):
