@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ cv.firstname }} {{ cv.lastname }} - CV</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2em; }
+        h1, h2, h3 { color: #333; }
+        ul { padding-left: 1.2em; }
+    </style>
+</head>
+<body>
+    <h1>{{ cv.firstname }} {{ cv.lastname }}</h1>
+    <h3>Bio</h3>
+    <p>{{ cv.bio }}</p>
+    <h3>Skills</h3>
+    <ul>
+        {% for skill in cv.skills %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Projects</h3>
+    <ul>
+        {% for project in cv.projects %}
+        <li><strong>{{ project.name }}</strong>: {{ project.description }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Contacts</h3>
+    <ul>
+        {% for key, value in cv.contacts.items %}
+        <li><strong>{{ key|capfirst }}:</strong> {{ value }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

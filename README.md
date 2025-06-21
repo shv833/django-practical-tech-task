@@ -7,6 +7,8 @@
 ## Poetry
 ```(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py -```
 
+If you don't have 'make' utility, run `winget install ezwinports.make`
+
 Use commands from makefile to install specific python version and dependencies
 ```
 # poetry
@@ -33,7 +35,7 @@ pe-set-py:
 * To run migrations, run `make mmigrate`
 * To run tests, run `make run-tests`
 * To run project, run `make run`
-
+* Install this and add bin folder to global path so you can generate pdf. `https://wkhtmltopdf.org/downloads.html`
 
 # Requirements:
 Follow PEP 8 and other style guidelines, use clear and concise commit messages and docstrings
