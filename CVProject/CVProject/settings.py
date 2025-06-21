@@ -141,3 +141,16 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Celery settings
+CELERY_BROKER_URL = optional("CELERY_BROKER_URL", "redis://redis:6379/0")
+CELERY_RESULT_BACKEND = optional("CELERY_RESULT_BACKEND", "redis://redis:6379/0")
+
+# Email settings
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = optional("EMAIL_HOST", "live.smtp.mailtrap.io")
+EMAIL_PORT = int(optional("EMAIL_PORT", 587))
+EMAIL_HOST_USER = optional("EMAIL_HOST_USER", "api")
+EMAIL_HOST_PASSWORD = optional("EMAIL_HOST_PASSWORD", "")
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = optional("DEFAULT_FROM_EMAIL", "smtp@demomailtrap.co")
