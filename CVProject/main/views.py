@@ -30,6 +30,10 @@ def logs_view(request):
     return render(request, "logs.html", {"logs": logs})
 
 
+def settings_view(request):
+    return render(request, "settings.html")
+
+
 class CVSerializer(serializers.ModelSerializer):
     class Meta:
         model = CV
