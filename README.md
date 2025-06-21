@@ -1,5 +1,33 @@
 # django-practical-tech-task
 
+# Setup (powershell)
+## Pyenv
+```Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1" -OutFile "./install-pyenv-win.ps1"; &"./install-pyenv-win.ps1"```
+
+## Poetry
+```(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py -```
+
+Use commands from makefile to install specific python version and dependencies
+```
+# poetry
+p-install:
+	poetry install
+
+p-install-shell:
+	poetry self add poetry-plugin-shell
+
+p-activate:
+	poetry shell
+
+
+# pyenv
+pe-install:
+	pyenv install 3.13.2
+
+pe-set-py:
+	pyenv local 3.13.2
+```
+
 # Requirements:
 Follow PEP 8 and other style guidelines, use clear and concise commit messages and docstrings
 where needed, structure your project for readability and maintainability, optimize database access
