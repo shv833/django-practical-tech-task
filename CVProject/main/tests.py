@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 from rest_framework.test import APIClient
-from main.models import CV
+from main.models import CV, RequestLog
 
 
 class CVViewsTestCase(TestCase):
@@ -86,3 +86,14 @@ class CVAPITestCase(TestCase):
         response = self.client.delete(f"/api/cv/{self.cv.pk}/")
         self.assertEqual(response.status_code, 204)
         self.assertFalse(CV.objects.filter(pk=self.cv.pk).exists())
+
+
+class RequestLogMiddlewareTestCase(TestCase):
+    def test_request_log_created_on_view(self):
+        initial_count = RequestLog.objects.count()
+        response = self.client.get(reverse("cv_list"))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(RequestLog.objects.count(), initial_count + 1)
+        log = RequestLog.objects.latest("timestamp")
+        self.assertEqual(log.method, "GET")
+        self.assertEqual(log.path, reverse("cv_list"))
