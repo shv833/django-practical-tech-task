@@ -1,5 +1,15 @@
 # django-practical-tech-task
 
+# How to run project locally
+1. Rename `.env.example` to `.env`
+2. Set values in `.env` file
+3. Run command `make` and the project is starting 
+* Fixtures are loaded automatically via `entrypoint.sh` — no manual action needed.
+* Deployed at: https://django-practical-tech-task.onrender.com.
+⚠️ Note: This is a free Render.com plan, so startup may be slow or the server may go offline. Please contact me if it's unavailable.
+* Celery worker is not running on the deployed version due to free tier limitations. It can be tested locally or redeployed with a paid plan.
+* AI translation may stop working if the free OPENAI_API_KEY usage limit is exceeded.
+
 # Setup (powershell)
 ## Pyenv
 ```Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1" -OutFile "./install-pyenv-win.ps1"; &"./install-pyenv-win.ps1"```
@@ -30,7 +40,7 @@ pe-set-py:
 	pyenv local 3.13.2
 ```
 
-# Run project
+# Usefull commands
 * To load fixture, run `make load-fixture`
 * To run migrations, run `make mmigrate`
 * To run tests, run `make run-tests`
@@ -56,6 +66,12 @@ curl -X PUT http://localhost:8000/api/cv/1/ -H "Content-Type: application/json" 
 
 curl -X DELETE http://localhost:8000/api/cv/1/
 ```
+
+## Other endpoints
+* settings - `http://localhost:8000/settings/`
+* logs - `http://localhost:8000/logs/`
+* list of cvs - `http://localhost:8000/`
+* cv details - `http://localhost:8000/cv/1/`
 
 # Requirements:
 Follow PEP 8 and other style guidelines, use clear and concise commit messages and docstrings where needed, structure your project for readability and maintainability, optimize database access using Django's built-in methods, and provide enough details in your README.
